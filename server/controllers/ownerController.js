@@ -1,4 +1,4 @@
-import User from "../models/user.js";
+import User from "../models/User.js";
 import Car from "../models/Car.js";
 import imagekit from "../configs/imagekit.js";
 import fs from "fs";

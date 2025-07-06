@@ -1,0 +1,10 @@
+<svg width="320" height="70" viewBox="0 0 320 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- VD Monogram in a circle -->
+  <circle cx="40" cy="35" r="28" fill="#f3e8ff" stroke="#7c3aed" stroke-width="3"/>
+  <text x="22" y="48" font-family="Outfit, sans-serif" font-size="34" fill="#7c3aed" font-weight="bold">V</text>
+  <text x="46" y="48" font-family="Outfit, sans-serif" font-size="34" fill="#3b0764" font-weight="bold">D</text>
+  <!-- CarRental text in Bitcount Grid Double -->
+  <text x="90" y="50" font-family="'Bitcount Grid Double', monospace" font-size="36" fill="#3b0764" font-weight="bold" letter-spacing="2">
+    CarRental
+  </text>
+</svg>

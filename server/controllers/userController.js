@@ -1,4 +1,4 @@
-import User from "../models/user.js";
+import User from "../models/User.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import Car from "../models/Car.js";
@@ -68,13 +68,11 @@ export const loginUser = async (req, res) => {
 //Get User data using token
 export const getUserData = async (req, res) => {
   try {
-    res
-      .status(200)
-      .json({
-        success: true,
-        user: req.user,
-        message: "User data fetched successfully",
-      });
+    res.status(200).json({
+      success: true,
+      user: req.user,
+      message: "User data fetched successfully",
+    });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }

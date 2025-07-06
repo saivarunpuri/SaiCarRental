@@ -11,7 +11,7 @@ const Testimonals = () => {
       location: "Barcelona, Spain",
       image: assets.testimonial_image_1,
       testimonial:
-        "Exceptional service and attention to detail. Everything was handled professionally and efficiently from start to finish. Highly recommended!",
+        "Varun Devlops made my trip unforgettable! The car was spotless, luxurious, and the booking process was seamless. I'll definitely rent from them again!",
     },
     {
       id: 2,
@@ -19,7 +19,7 @@ const Testimonals = () => {
       location: "New York, USA",
       image: assets.testimonial_image_2,
       testimonial:
-        "I'm truly impressed by the quality and consistency. The entire process was smooth, and the results exceeded all expectations. Thank you!",
+        "Best car rental experience ever! The team at Varun Devlops provided top-notch service and a fantastic selection of vehicles. Highly recommended for anyone seeking comfort and style.",
     },
   ];
 

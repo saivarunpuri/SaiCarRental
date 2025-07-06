@@ -79,8 +79,9 @@ const Footer = () => {
             transition={{ duration: 0.2 }}
           />
           <motion.p variants={linkVariants} className="text-sm leading-relaxed">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
+            Varun Devlops offers premium car rental services, combining luxury,
+            comfort, and reliability for every journey. Drive your dreams with
+            us!
           </motion.p>
 
           <motion.div
@@ -178,10 +179,10 @@ const Footer = () => {
             className="mt-3 flex flex-col gap-2 text-sm"
           >
             {[
-              "1234 Luxary Drive",
-              "Hyderabad Telangana",
-              "+1 234 567 890",
-              "info@luxary.com",
+              "Varun Devlops HQ",
+              "Hyderabad, Telangana, India",
+              "+91 98765 43210",
+              "support@varundevlops.com",
             ].map((item, index) => (
               <motion.li
                 key={index}
@@ -210,7 +211,7 @@ const Footer = () => {
         className="flex flex-col md:flex-row gap-2 items-center justify-between py-5"
       >
         <motion.p variants={linkVariants} className="text-sm">
-          © {new Date().getFullYear()} Brand. All rights reserved.
+          © {new Date().getFullYear()} Varun Devlops. All rights reserved.
         </motion.p>
 
         <motion.ul

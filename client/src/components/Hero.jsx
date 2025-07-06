@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { assets, cityList } from "../assets/assets";
 import { useAppContext } from "../context/AppContext";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   const [pickupLocation, setPickupLocation] = useState("");
@@ -14,28 +15,89 @@ const Hero = () => {
     );
   };
 
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-light text-center px-4 py-8">
-      <div className="w-full max-w-6xl">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6 md:mb-8">
-          Luxury Cars On Rent
-        </h1>
+  // Animation variants for sequential rendering
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.3,
+      },
+    },
+  };
 
-        <form
-          onSubmit={handleSearch}
-          className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 mb-8 md:mb-12"
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6 },
+    },
+  };
+
+  const formVariants = {
+    hidden: { opacity: 0, y: 50, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.8, delay: 0.6 },
+    },
+  };
+
+  const imageVariants = {
+    hidden: { opacity: 0, x: 300 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.6,
+        delay: 1.2,
+        ease: [0.25, 0.46, 0.45, 0.94], // Custom easing for sudden stop
+      },
+    },
+  };
+
+  return (
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="flex flex-col items-center justify-center min-h-screen bg-light text-center px-4 py-8"
+    >
+      <div className="w-full max-w-6xl">
+        <motion.h1
+          variants={itemVariants}
+          className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4 md:mb-6"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          Luxury Cars On Rent
+        </motion.h1>
+
+        <motion.p
+          variants={itemVariants}
+          className="text-base md:text-lg text-lavender-700 font-semibold mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed"
+        >
+          Elevate your journey with Varun Devlops – where luxury, comfort, and
+          style drive every mile.
+        </motion.p>
+
+        <motion.form
+          variants={formVariants}
+          onSubmit={handleSearch}
+          className="bg-white/95 backdrop-blur-sm rounded-2xl md:rounded-full shadow-2xl p-4 md:p-5 mb-6 md:mb-8 border border-lavender-200 max-w-3xl mx-auto"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-3 lg:gap-4">
             {/* Pickup Location */}
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-gray-700 text-left">
+            <div className="space-y-1">
+              <label className="block text-xs font-semibold text-lavender-700 text-left">
                 Pickup Location
               </label>
               <select
                 required
                 value={pickupLocation}
                 onChange={(e) => setPickupLocation(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900"
+                className="w-full px-2 py-1.5 md:px-3 md:py-2 text-xs md:text-sm border border-lavender-300 rounded-full focus:ring-2 focus:ring-lavender-500 focus:border-lavender-500 transition-all duration-200 bg-white/80 text-gray-900 placeholder-lavender-400"
               >
                 <option value="">Select Location</option>
                 {cityList.map((city, index) => (
@@ -47,10 +109,10 @@ const Hero = () => {
             </div>
 
             {/* Pickup Date */}
-            <div className="space-y-2">
+            <div className="space-y-1">
               <label
                 htmlFor="pickupDate"
-                className="block text-sm font-medium text-gray-700 text-left"
+                className="block text-xs font-semibold text-lavender-700 text-left"
               >
                 Pickup Date
               </label>
@@ -59,17 +121,17 @@ const Hero = () => {
                 id="pickupDate"
                 required
                 min={new Date().toISOString().split("T")[0]}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900"
+                className="w-full px-2 py-1.5 md:px-3 md:py-2 text-xs md:text-sm border border-lavender-300 rounded-full focus:ring-2 focus:ring-lavender-500 focus:border-lavender-500 transition-all duration-200 bg-white/80 text-gray-900"
                 value={pickupDate}
                 onChange={(e) => setPickupDate(e.target.value)}
               />
             </div>
 
             {/* Return Date */}
-            <div className="space-y-2">
+            <div className="space-y-1">
               <label
                 htmlFor="returnDate"
-                className="block text-sm font-medium text-gray-700 text-left"
+                className="block text-xs font-semibold text-lavender-700 text-left"
               >
                 Return Date
               </label>
@@ -78,7 +140,7 @@ const Hero = () => {
                 id="returnDate"
                 required
                 min={new Date().toISOString().split("T")[0]}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900"
+                className="w-full px-2 py-1.5 md:px-3 md:py-2 text-xs md:text-sm border border-lavender-300 rounded-full focus:ring-2 focus:ring-lavender-500 focus:border-lavender-500 transition-all duration-200 bg-white/80 text-gray-900"
                 value={returnDate}
                 onChange={(e) => setReturnDate(e.target.value)}
               />
@@ -86,30 +148,44 @@ const Hero = () => {
 
             {/* Search Button */}
             <div className="flex items-end">
-              <button
+              <motion.button
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className={`w-full bg-gradient-to-r from-lavender-600 to-lavender-700 hover:from-lavender-700 hover:to-lavender-800 font-semibold py-1.5 md:py-2 px-3 md:px-4 rounded-full transition-all duration-200 flex items-center justify-center gap-1 md:gap-2 shadow-lg hover:shadow-xl text-xs md:text-sm
+                  ${
+                    !pickupLocation && !pickupDate && !returnDate
+                      ? "text-gray-400 italic"
+                      : "text-white"
+                  }`}
+                disabled={!pickupLocation && !pickupDate && !returnDate}
               >
                 <img
                   src={assets.search_icon}
                   alt="search"
-                  className="w-5 h-5"
+                  className={`w-3 h-3 md:w-4 md:h-4 ${
+                    !pickupLocation && !pickupDate && !returnDate
+                      ? "opacity-60"
+                      : ""
+                  }`}
                 />
-                Search Cars
-              </button>
+                {!pickupLocation && !pickupDate && !returnDate
+                  ? "Search for your dream car…"
+                  : "Search Cars"}
+              </motion.button>
             </div>
           </div>
-        </form>
+        </motion.form>
 
-        <div className="flex justify-center">
+        <motion.div variants={imageVariants} className="flex justify-center">
           <img
             src={assets.main_car}
             alt="Luxury Car"
             className="max-w-full h-auto max-h-96 md:max-h-112 object-contain"
           />
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

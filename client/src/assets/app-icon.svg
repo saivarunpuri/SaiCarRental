@@ -1,0 +1,27 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E6E6FA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D8BFD8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="90" cy="90" r="85" fill="url(#bgGradient)" stroke="#9370DB" stroke-width="3"/>
+  
+  <!-- V letter -->
+  <path d="M45 45L67.5 112.5L90 45" stroke="#9370DB" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  
+  <!-- D letter -->
+  <path d="M112.5 45H135C142.179 45 148 50.8208 148 58V122C148 129.179 142.179 135 135 135H112.5V45Z" stroke="#9370DB" stroke-width="8" fill="none"/>
+  <path d="M112.5 45V135" stroke="#9370DB" stroke-width="8"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="67.5" cy="67.5" r="6" fill="#9370DB" opacity="0.7"/>
+  <circle cx="112.5" cy="112.5" r="6" fill="#9370DB" opacity="0.7"/>
+  
+  <!-- Additional decorative dots -->
+  <circle cx="45" cy="135" r="4" fill="#9370DB" opacity="0.5"/>
+  <circle cx="135" cy="45" r="4" fill="#9370DB" opacity="0.5"/>
+</svg> 
